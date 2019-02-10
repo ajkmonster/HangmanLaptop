@@ -45,6 +45,9 @@ public class HangmanLaptop {
                System.out.println("Please enter your guess: ");
                Scanner key = new Scanner(System.in);
                userGuess = key.nextLine().toLowerCase();
+               if (wrongNum>=6) {
+                   break;
+               }
                if (!userGuess.equalsIgnoreCase(words.get(index))) {
                    for (int i = 0; i < splitStr.length; i++) {
                        if (splitStr[i].equalsIgnoreCase(userGuess)) {
@@ -54,8 +57,6 @@ public class HangmanLaptop {
                    }
                    wrongChecker();
                    yourGuess();
-               } else if (wrongNum>=6) {
-                   break;
                } else if (userGuess.equalsIgnoreCase(words.get(index))){
                    break;
                }
@@ -101,8 +102,7 @@ public class HangmanLaptop {
                 contains = true;
             }
         }
-        if (!contains)
-        {
+        if (!contains) {
             wrongNum+=1;
         }
         System.out.println("You've guessed wrong "+wrongNum+"/6 times.");
